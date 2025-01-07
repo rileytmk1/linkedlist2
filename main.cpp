@@ -5,7 +5,6 @@
 
 using namespace std;
 
-Node* head = NULL;
 
 int main()
 {
@@ -49,32 +48,45 @@ int main()
     
 }
 
-void add (Student* newstudent){
-  Node* current = head;
-  Node* t = NULL;
-  if (current == NULL) {
-    head = new Node(newstudent);
+void add (Student* newstudent, Node* current, Node* previous){
+  if (current == NULL && previous == NULL) {
+    current = new Node(newstudent);
+  }
+  else if (current != NULL && previous == NULL){
+    if (current->getStudent()->getID() > newstudent->getID()){
+      Node* temp = NULL;
+      temp = current;
+      current = new Node(newstudent);
+      current->setNext(temp);
+    }
+    else {
+      Node* newprev = current;
+      Node* newcurr = current->getNext();
+      add(newstudent, newcurr, newprev);
+    }
   }
   else if (current->getStudent()->getID() > newstudent->getID()){
-    t = current;
+    Node* temp2 = NULL;
+    temp2 = current;
     current = new Node(newstudent);
-    add(t->getStudent());
-    
+    previous->setNext(current);
+    current->setNext(temp2);
   }
   else{
-    while (current->getNext() != NULL){
-      current = current->getNext();
-    }
-    current->setNext() = new Node(newstudent);
-    else{
-      
-    }
-
-    // 4 (6)
-    // 4 --> 6 (5)
-    //4 --> 5 --> 6
-    
+    Node* newprev2 = current;
+    Node* newcurr2 = current->getNext();
+    add(newstudent, newcurr2, newprev2);
   }
+}
+
+void average()
+{
+
+}
+
+void delete()
+{
+
 }
 
 void print(Node* next){

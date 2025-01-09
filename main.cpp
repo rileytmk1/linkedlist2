@@ -84,7 +84,7 @@ void average()
 
 }
 
-void delete()
+void DELETE()
 {
 
 }

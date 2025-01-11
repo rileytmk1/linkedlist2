@@ -1,16 +1,26 @@
-#include <iostream>
 #include "Student.h"
+
+#include <iostream>
+#include <cstring>
 
 using namespace std;
 
 Student::Student() {
-  id = 0;
+  
 }
 
-void Student::setID(int newID) {
-  id = newID;
+char* Student::getFirst(){
+  return first;
 }
 
-int Student::getID() {
+char* Student::getLast(){
+  return last;
+}
+
+int& Student::getId(){
   return id;
+}
+
+double& Student::getGPA(){
+  return GPA;
 }

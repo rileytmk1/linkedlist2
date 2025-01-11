@@ -1,26 +1,28 @@
-#include <iostream>
+//Brandon's Code
+
 #include "Node.h"
+#include "Student.h"
 
 Node::Node(Student* newStudent) {
+  value = newStudent;
   next = NULL;
-  student = newStudent;
 }
 
 Node::~Node() {
-  delete student;
+  delete value;
   next = NULL;
 }
 
-void Node::setStudent(Student* newStudent) {
-  student = newStudent;
+void Node::setValue(Student* newStudent) {
+  value = newStudent;
 }
 
-Student* Node::getStudent() {
-  return student;
+Student* Node::getValue() {
+  return value;
 }
 
-void Node::setNext(Node* newNode) {
-  next = newNode;
+void Node::setNext(Node* newNext) {
+  next = newNext;
 }
 
 Node* Node::getNext() {
